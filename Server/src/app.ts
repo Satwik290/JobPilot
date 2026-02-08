@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
+import authRoutes from "./modules/auth/auth.routes";
 
 
 const app = Express();
@@ -21,5 +22,7 @@ app.get('/health', (req, res)=>{
     res.status(200).json({status : 'UP' , message: 'server is runing smoothly'});
 
 });
+
+app.use('/api/auth', authRoutes);
 
 export default app;
