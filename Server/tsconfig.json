@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    /* Base Options */
+    "target": "ESNext",                          /* Latest ECMAScript version */
+    "module": "NodeNext",                        /* Best for Node.js 20+ compatibility */
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext"],                           /* High-performance modern APIs */
+    
+    /* Strictness */
+    "strict": true,                              /* Enable all strict type-checking options */
+    "noImplicitAny": true,                       /* Error on expressions with an implied 'any' type */
+    "strictNullChecks": true,                    /* Ensure null/undefined are handled */
+    
+    /* Path Mapping & Types */
+    "typeRoots": ["./node_modules/@types", "./src/types"], /* Crucial for req.user fix */
+    "esModuleInterop": true,                     /* For importing CommonJS modules cleanly */
+    "skipLibCheck": true,                        /* Speed up builds by skipping d.ts checks */
+    "forceConsistentCasingInFileNames": true,
+    
+    /* Build Options */
+    "outDir": "./dist",                          /* Where compiled code goes */
+    "rootDir": "./src",                          /* Where source code lives */
+    "removeComments": true,                      /* Smaller output files */
+    "sourceMap": true                            /* Useful for debugging in production */
+  },
+  "include": ["src/**/*"],                       /* Include everything in src */
+  "exclude": ["node_modules", "**/*.test.ts"]    /* Ignore tests in build */
+}

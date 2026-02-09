@@ -1,6 +1,6 @@
 import { env } from "../config/env";
 import jwt from 'jsonwebtoken';
-import { Request, Response, NextFunction } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 const authmiddleware = (req: Request, res: Response, next: NextFunction)=>{
     const token = req.cookies.token || req.header('Authorization')?.replace('Bearer ', '');
@@ -15,3 +15,5 @@ const authmiddleware = (req: Request, res: Response, next: NextFunction)=>{
         return res.status(401).json({ success: false, message: 'Token is invalid or expired' });
     }
 };
+
+export default authmiddleware;
