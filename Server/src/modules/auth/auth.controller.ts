@@ -5,7 +5,7 @@ export class AuthController {
   register = async (req: Request, res: Response) => {
     try {
       const token = await authService.register(req.body);
-      this.setTokenCookie(res, token); // Now works because of arrow function below
+      this.setTokenCookie(res, token); 
       res.status(201).json({ success: true, message: 'User registered' });
     } catch (error: any) {
       res.status(400).json({ success: false, message: error.message });
@@ -27,7 +27,6 @@ export class AuthController {
     res.status(200).json({ success: true, message: 'Logged out successfully' });
   };
 
-  // FIXED: Changed to arrow function to preserve 'this'
   private setTokenCookie = (res: Response, token: string) => {
     res.cookie('token', token, {
       httpOnly: true,
