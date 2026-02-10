@@ -48,6 +48,7 @@ Cloud storage (Cloudinary/S3)
 
 Preview and replace resumes
 
+
 🤖 AI Resume Analyzer
 
 Extracts text from resumes
