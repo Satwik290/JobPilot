@@ -1,9 +1,11 @@
-import { Request } from 'express';
+import { IUserPayload } from "../resume.types";
 
 declare global {
   namespace Express {
     interface Request {
-      user?: string; // This adds 'user' to the Request type globally
+      user?: IUserPayload;
     }
   }
 }
+
+export {};

@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { jobController } from "./job.controller";
-import  authMiddleware  from "../../middlewares/auth.middleware";
+import { authMiddleware } from "../../middlewares/auth.middleware";
 import  validate  from "../../middlewares/validate.middleware";
 import { jobSchema, updateJobSchema } from "./job.schema";
 
