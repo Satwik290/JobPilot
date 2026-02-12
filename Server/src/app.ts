@@ -6,6 +6,8 @@ import cookieParser from 'cookie-parser';
 import authRoutes from "./modules/auth/auth.routes";
 import jobRoutes from './modules/jobs/job.routes';
 import resumeRoutes from './modules/resume/resume.routes';
+import { errorHandler } from "./middlewares/error.middleware";
+
 
 const app = express();
 
@@ -27,5 +29,8 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes); 
 app.use('/api/resumes', resumeRoutes); 
+
+app.use(errorHandler);
+
 
 export default app;
