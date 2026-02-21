@@ -2,23 +2,23 @@ import express from "express";
 import { resumeController } from "./resume.controller";
 import { upload } from "../../config/cloudinary";
 import { authMiddleware } from "../../middlewares/auth.middleware";
+import { asyncHandler } from "../../utils/asyncHandler";
+
 
 const router = express.Router();
 
 // Upload Resume
 router.post(
   "/upload",
-  authMiddleware,        // FIRST
-  upload.single("file"),// SECOND
-  resumeController.uploadResume
+  authMiddleware,
+  upload.single("file"),
+  asyncHandler(resumeController.uploadResume)
 );
-
-
-// Get My Resumes
+// Get all Resumes
 router.get(
   "/",
   authMiddleware,
-  resumeController.getMyResumes
+  asyncHandler(resumeController.getMyResumes)
 );
 
 export default router;
